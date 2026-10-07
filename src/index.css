@@ -1,0 +1,355 @@
+/* ====================== LAVENDER + CREAM PALETTE ====================== */
+:root {
+  --bg-cream:      #FFF1D7;
+  --light-beige:   #EBD8D2;
+  --light-lavender:#CBB6C7;
+  --main-purple:   #7F6C8C;
+  --deep-purple:   #2F2A33;
+  --text-dark:     #2F2A33;
+  --text-muted:    #5F5A66;
+  --white:         #FFFFFF;
+  --border-light:  #EBD8D2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* ====================== NAVBAR ====================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(203, 182, 199, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.65rem 3% 0.55rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled {
+  background-color: rgba(203, 182, 199, 0.78);
+  height: 64px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: 1480px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.4rem;
+  font-size: 1.03rem;
+  font-weight: 500;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--main-purple);
+}
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  padding: 12px 0;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  list-style: none;
+  z-index: 100;
+}
+
+.submenu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu li a {
+  display: block;
+  padding: 12px 24px;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 1.02rem;
+  transition: all 0.2s ease;
+}
+
+.submenu li a:hover {
+  background-color: var(--light-beige);
+  color: var(--main-purple);
+}
+
+.logo {
+  font-family: 'Playfair Display', cursive;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: -0.8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.book-btn {
+  background-color: var(--main-purple);
+  color: white;
+  border: none;
+  padding: 0.68rem 1.95rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: var(--deep-purple);
+  transform: translateY(-2px);
+}
+
+/* ====================== HERO WITH PARALLAX ====================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.45)),
+              url('https://static.vecteezy.com/system/resources/previews/015/586/690/non_2x/hands-of-a-young-woman-with-dark-red-manicure-on-nails-photo.jpg') center/cover no-repeat;
+  z-index: 1;
+  will-change: transform;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 820px;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.22rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  opacity: 0.92;
+}
+
+.hero h1 {
+  font-size: 4.65rem;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.4rem;
+  letter-spacing: -1.2px;
+}
+
+.hero p {
+  font-size: 1.45rem;
+  max-width: 580px;
+  margin: 0 auto 3rem;
+  opacity: 0.94;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 1.15rem 2.8rem;
+  border-radius: 50px;
+  font-size: 1.16rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.primary {
+  background-color: var(--main-purple);
+  color: white;
+}
+
+.primary:hover {
+  background-color: var(--deep-purple);
+  transform: translateY(-3px);
+}
+
+.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.9);
+}
+
+.secondary:hover {
+  background-color: white;
+  color: var(--text-dark);
+}
+
+/* ====================== PORTFOLIO CAROUSEL ====================== */
+.featured {
+  padding: 100px 4% 90px;
+  background-color: var(--bg-cream);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 2.9rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.divider {
+  width: 90px;
+  height: 3px;
+  background-color: var(--main-purple);
+  margin: 0 auto;
+}
+
+.service-carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  scrollbar-width: none;
+}
+
+.service-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.service-card {
+  width: 360px;
+  height: 420px;
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.service-card:hover {
+  transform: translateY(-16px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.15);
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Carousel Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.95);
+  border: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: white;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow-left { left: 15px; }
+.carousel-arrow-right { right: 15px; }
+
+/* WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 2000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
